@@ -1,0 +1,96 @@
+body {
+  padding-top: 50px;
+  box-sizing: border-box;
+  font-family: Georgia serif;
+  background: blue;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+h1 {
+  text-align: center;
+  font-size: 30;
+  font-style: oblique;
+  color: whitesmoke;
+}
+
+h2 {
+  text-align: center;
+  color: whitesmoke;
+}
+
+a {
+  align-content: center;
+  margin: auto auto;
+}
+
+p {
+  text-align: center;
+  max-width: 35%;
+  display: block;
+  margin: auto auto;
+  color: whitesmoke;
+}
+
+h3 {
+  text-align: center;
+  color: whitesmoke;
+}
+
+a, img {
+  display: block;
+  width: 50%;
+  margin: auto auto;
+}
+
+.list-buttons {
+  display: block;
+  margin: 0 auto;
+  padding: 10px;
+  width: 410px;
+}
+
+.events-button {
+  display: inline-block;
+  min-height: 80px;
+  min-width: 80px;
+  margin-bottom: 2em;
+  font-size: 2em;
+  background-color:red;
+  color: white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 60%;
+  max-width: 200px;
+  margin: auto auto;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0);
+  border: none;
+}
+
+.stories-button {
+  display: inline-block;
+  min-height: 80px;
+  min-width: 80px;
+  margin-bottom: 2em;
+  font-size: 2em;
+  background-color:red;
+  color: white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 60%;
+  max-width: 200px;
+  margin: auto auto;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0);
+  border: none;
+}
+
+.list:hover {
+  background-color: gold;
+  color:green;
+  cursor: pointer;
+}
+
