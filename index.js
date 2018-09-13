@@ -36,14 +36,20 @@ function renderResults(result) {
   `;
 }
 
-/*function handleEventsButton() {
+function handleEventsButton(data) {
   $('.js-search-results').on('click', '.events-button', function(event) {
+    event.preventDefault();
+    const results = data.data.results.map((results,index) => renderResults(results));
+    $('.js-search-results').html(results);
     renderEventsList();
   });
 }
 
 function handleStoriesButton() {
-  $('.js-search-results').on('click', '.stories-button', function(event) {
+  $('.js-search-results').on('click', '.events-button', function(event) {
+    event.preventDefault();
+    const results = data.data.results.map((results,index) => renderResults(results));
+    $('.js-search-results').html(results);
     renderStoriesList();
   });
 }
@@ -62,7 +68,7 @@ function renderStoriesList(result) {
     <a data-stories="${result.stories.collectionURI}"></a>
   </main>
   `;
-}*/
+}
 
 function watchSubmit() {
   $('.js-search-form').submit(event => {
@@ -73,5 +79,10 @@ function watchSubmit() {
     getDataFromApi(query, displayMarvelSearchData);
   });
 }
+ function handleAllButtons() {
+   handleEventsButton();
+   handleStoriesButton();
+ }
 
+ handleAllButtons();
 $(watchSubmit);
