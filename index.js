@@ -9,7 +9,7 @@ function getDataFromApi(searchName, callback) {
     ts:ts,
     hash:hash,
     nameStartsWith: `${searchName}`,
-    limit: 50,
+    limit: 2,
     apikey: PUBLIC_KEY,
   }
   $.getJSON(SEARCH_URL, query, callback).fail(function(err) {
@@ -29,7 +29,7 @@ function renderResults(result) {
     <h3>${result.name}</h3>
     <p>${result.description}</p>
     <div class="list-buttons">
-      <button class="list events-button">Events</button>
+      <button class="list events-button" data-character-id= "${result.events.items}">Events</button>
       <button class="list stories-button">Stories</button>
     </div>
   </main>
@@ -39,17 +39,15 @@ function renderResults(result) {
 function handleEventsButton(data) {
   $('.js-search-results').on('click', '.events-button', function(event) {
     event.preventDefault();
-    const results = data.data.results.map((results,index) => renderResults(results));
-    $('.js-search-results').html(results);
+    $(this).data("character-id")
     renderEventsList();
   });
 }
 
-function handleStoriesButton() {
+function handleStoriesButton(data) {
   $('.js-search-results').on('click', '.events-button', function(event) {
     event.preventDefault();
-    const results = data.data.results.map((results,index) => renderResults(results));
-    $('.js-search-results').html(results);
+
     renderStoriesList();
   });
 }
