@@ -37,7 +37,7 @@ function renderResults(result) {
   `;
 }
 
-function handleEventsButton(data) {
+/*function handleEventsButton(data) {
   $('.js-search-results').on('click', '.events-button', function(event) {
     let eventsData = $(this).data("character-id");
     let ts = new Date().getTime();
@@ -54,7 +54,7 @@ function handleEventsButton(data) {
       });
   });
     renderEventsList();
-  }
+  }*/
 
 function handleStoriesButton(data) {
   $('.js-search-results').on('click', '.stories-button', function(event) {
