@@ -1,5 +1,4 @@
 const SEARCH_URL = 'https://gateway.marvel.com/v1/public/characters';
-const ID_URL = 'https://gateway.marvel.com/v1/public/characters/{characterId}';
 const PRIV_KEY = 'aaccdca8c0f32bd490d6a26de61f578767240de2';
 const PUBLIC_KEY = 'e6d48e51bbc8c11f11a587183af077f6';
 
@@ -31,7 +30,7 @@ function renderResults(result) {
     <p>${result.description}</p>
     <div class="list-buttons">
       <button class="list events-button" data-character-id= "${result.id}">Events</button>
-      <button class="list stories-button" data-character-id= "${result.id}>Stories</button>
+      <button class="list stories-button" data-id-character= "${result.id}">Stories</button>
     </div>
   </main>
   `;
@@ -45,11 +44,12 @@ function handleEventsButton(characterId, callback) {
     const query= {
       ts:ts,
       hash:hash,
-      characterId: "eventsData",
+      characterId: eventsData,
       limit: 1,
       apikey: PUBLIC_KEY,
     }
-      $.getJSON(ID_URL, query, renderEventsList).fail(function(err) {
+    let characterUrl = SEARCH_URL + "/" + eventsData + "/events";
+      $.getJSON(characterUrl, query, renderEventsList).fail(function(err) {
         console.log(err);
       });
   });
@@ -58,27 +58,27 @@ function handleEventsButton(characterId, callback) {
 
 function handleStoriesButton(characterId, callback) {
   $('.js-search-results').on('click', '.stories-button', function(event) {
-    let storiesData = $(this).data("character-id");
+    let storiesData = $(this).data("id-character");
     let ts = new Date().getTime();
     let hash = md5(ts + PRIV_KEY + PUBLIC_KEY);
     const query= {
       ts:ts,
       hash:hash,
-      characterId: "storiesData",
+      characterId: storiesData,
       limit: 1,
       apikey: PUBLIC_KEY,
     }
-      $.getJSON(ID_URL, query, callback).fail(function(err) {
+    let characterUrl = SEARCH_URL + "/" + storiesData + "/events";
+      $.getJSON(characterUrl, query, renderStoriesList).fail(function(err) {
         console.log(err);
       });
   });
-    renderStoriesList();
 }
 
 function renderEventsList(result) {
   return `
     <main class="events-list">
-      <a data-events="${result.events.collectionURI}"></a>
+      <a data-events="${result.data.results}"></a>
     </main>
   `;
 }
@@ -86,7 +86,7 @@ function renderEventsList(result) {
 function renderStoriesList(result) {
   return `
   <main class="stories-list">
-    <a data-stories="${result.stories.collectionURI}"></a>
+    <a data-stories="${result.data.results}"></a>
   </main>
   `;
 }
