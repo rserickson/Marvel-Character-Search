@@ -1,4 +1,5 @@
 const SEARCH_URL = 'https://gateway.marvel.com/v1/public/characters';
+const ID_URL = 'https://gateway.marvel.com/v1/public/characters/{characterId}';
 const PRIV_KEY = 'aaccdca8c0f32bd490d6a26de61f578767240de2';
 const PUBLIC_KEY = 'e6d48e51bbc8c11f11a587183af077f6';
 
@@ -9,7 +10,7 @@ function getDataFromApi(searchName, callback) {
     ts:ts,
     hash:hash,
     nameStartsWith: `${searchName}`,
-    limit: 2,
+    limit: 1,
     apikey: PUBLIC_KEY,
   }
   $.getJSON(SEARCH_URL, query, callback).fail(function(err) {
@@ -30,7 +31,7 @@ function renderResults(result) {
     <p>${result.description}</p>
     <div class="list-buttons">
       <button class="list events-button" data-character-id= "${result.events.items}">Events</button>
-      <button class="list stories-button">Stories</button>
+      <button class="list stories-button" data-character-id= "${result.stories.items}>Stories</button>
     </div>
   </main>
   `;
@@ -38,32 +39,54 @@ function renderResults(result) {
 
 function handleEventsButton(data) {
   $('.js-search-results').on('click', '.events-button', function(event) {
-    event.preventDefault();
-    $(this).data("character-id")
-    renderEventsList();
+    let eventsData = $(this).data("character-id");
+    let ts = new Date().getTime();
+    let hash = md5(ts + PRIV_KEY + PUBLIC_KEY);
+    const query= {
+      ts:ts,
+      hash:hash,
+      characterId: "eventsData",
+      limit: 1,
+      apikey: PUBLIC_KEY,
+    }
+      $.getJSON(query, callback).fail(function(err) {
+        console.log(err);
+      });
   });
-}
+    renderEventsList();
+  }
 
 function handleStoriesButton(data) {
-  $('.js-search-results').on('click', '.events-button', function(event) {
-    event.preventDefault();
-
-    renderStoriesList();
+  $('.js-search-results').on('click', '.stories-button', function(event) {
+    let storiesData = $(this).data("character-id");
+    let ts = new Date().getTime();
+    let hash = md5(ts + PRIV_KEY + PUBLIC_KEY);
+    const query= {
+      ts:ts,
+      hash:hash,
+      characterId: "storiesData",
+      limit: 1,
+      apikey: PUBLIC_KEY,
+    }
+      $.getJSON(query, callback).fail(function(err) {
+        console.log(err);
+      });
   });
+    renderStoriesList();
 }
 
 function renderEventsList(result) {
   return `
-  <main class="events-list">
-    <a data-events="${result.events.collectionURI}"></a>
-  </main>
+    <main class="events-list">
+      <a data-events="${result.events.name}"></a>
+    </main>
   `;
 }
 
 function renderStoriesList(result) {
   return `
   <main class="stories-list">
-    <a data-stories="${result.stories.collectionURI}"></a>
+    <a data-stories="${result.stories.name}"></a>
   </main>
   `;
 }
