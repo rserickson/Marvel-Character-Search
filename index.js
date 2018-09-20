@@ -78,7 +78,7 @@ function handleStoriesButton(characterId, callback) {
 function renderEventsList(result) {
   return `
     <main class="events-list">
-      <a data-events="${result.events.name}"></a>
+      <a data-events="${result.events.collectionURI}"></a>
     </main>
   `;
 }
@@ -86,7 +86,7 @@ function renderEventsList(result) {
 function renderStoriesList(result) {
   return `
   <main class="stories-list">
-    <a data-stories="${result.stories.name}"></a>
+    <a data-stories="${result.stories.collectionURI}"></a>
   </main>
   `;
 }
