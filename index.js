@@ -30,8 +30,8 @@ function renderResults(result) {
     <h3>${result.name}</h3>
     <p>${result.description}</p>
     <div class="list-buttons">
-      <button class="list events-button" data-character-id= "${result.events.items}">Events</button>
-      <button class="list stories-button" data-character-id= "${result.stories.items}>Stories</button>
+      <button class="list events-button" data-character-id= "${result.id}">Events</button>
+      <button class="list stories-button" data-character-id= "${result.id}>Stories</button>
     </div>
   </main>
   `;
