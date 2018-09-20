@@ -101,7 +101,7 @@ function watchSubmit() {
   });
 }
  function handleAllButtons() {
-   handleEventsButton();
+   //handleEventsButton();
    handleStoriesButton();
  }
 
