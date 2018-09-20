@@ -37,7 +37,7 @@ function renderResults(result) {
   `;
 }
 
-/*function handleEventsButton(data) {
+function handleEventsButton(characterId, callback) {
   $('.js-search-results').on('click', '.events-button', function(event) {
     let eventsData = $(this).data("character-id");
     let ts = new Date().getTime();
@@ -49,14 +49,14 @@ function renderResults(result) {
       limit: 1,
       apikey: PUBLIC_KEY,
     }
-      $.getJSON(query, callback).fail(function(err) {
+      $.getJSON(ID_URL, query, callback).fail(function(err) {
         console.log(err);
       });
   });
     renderEventsList();
-  }*/
+  }
 
-function handleStoriesButton(data) {
+function handleStoriesButton(characterId, callback) {
   $('.js-search-results').on('click', '.stories-button', function(event) {
     let storiesData = $(this).data("character-id");
     let ts = new Date().getTime();
@@ -68,7 +68,7 @@ function handleStoriesButton(data) {
       limit: 1,
       apikey: PUBLIC_KEY,
     }
-      $.getJSON(query, callback).fail(function(err) {
+      $.getJSON(ID_URL, query, callback).fail(function(err) {
         console.log(err);
       });
   });
@@ -101,7 +101,7 @@ function watchSubmit() {
   });
 }
  function handleAllButtons() {
-   //handleEventsButton();
+   handleEventsButton();
    handleStoriesButton();
  }
 
