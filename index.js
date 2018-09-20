@@ -49,11 +49,11 @@ function handleEventsButton(characterId, callback) {
       limit: 1,
       apikey: PUBLIC_KEY,
     }
-      $.getJSON(ID_URL, query, callback).fail(function(err) {
+      $.getJSON(ID_URL, query, renderEventsList).fail(function(err) {
         console.log(err);
       });
   });
-    renderEventsList();
+
   }
 
 function handleStoriesButton(characterId, callback) {
