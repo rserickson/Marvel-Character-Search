@@ -76,19 +76,31 @@ function handleStoriesButton(characterId, callback) {
 }
 
 function renderEventsList(result) {
-  return `
+  let newHTML = "";
+  for(let i =0; i < data.results.length; i++) {
+    newHTML +=`
     <main class="events-list">
+      <div data-events="${result.data.thumbnail.path}.${result.data.thumbnail.extention}>"</div>
+      <h2 data-events="${result.data.title}></h2>
       <a data-events="${result.data.results}"></a>
     </main>
   `;
+  }
+  $(".js-search-results").html(newHTML);
 }
 
 function renderStoriesList(result) {
-  return `
+  let newHTML = "";
+  for(let i =0; i < data.results.length; i++){
+    newHTML += `
   <main class="stories-list">
-    <a data-stories="${result.data.results}"></a>
+    <div data-stories="${}></div>
+    <h2 data-stories="${}></h2>
+    <a data-stories="${}"></a>
   </main>
   `;
+  }
+  $(".js-search-results").html(newHTML);
 }
 
 function watchSubmit() {
