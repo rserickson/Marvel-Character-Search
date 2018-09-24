@@ -75,13 +75,13 @@ function handleStoriesButton(characterId, callback) {
   });
 }
 
-function renderEventsList(result) {
+function renderEventsList(result, data) {
   let newHTML = "";
   for(let i =0; i < data.results.length; i++) {
     newHTML +=`
     <main class="events-list">
-      <div data-events="${result.data.thumbnail.path}.${result.data.thumbnail.extention}>"</div>
-      <h2 data-events="${result.data.title}></h2>
+      <div data-events="${result.data.thumbnail[i].path}.${result.data.thumbnail[i].extention}>"</div>
+      <h2 data-events="${result.data.title[i]}></h2>
       <a data-events="${result.data.results}"></a>
     </main>
   `;
