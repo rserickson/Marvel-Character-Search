@@ -89,7 +89,7 @@ function renderEventsList(result) {
   $(".js-search-results").html(newHTML);
 }
 
-function renderStoriesList(result) {
+/*function renderStoriesList(result) {
   let newHTML = "";
   for(let i =0; i < data.results.length; i++){
     newHTML += `
@@ -101,7 +101,7 @@ function renderStoriesList(result) {
   `;
   }
   $(".js-search-results").html(newHTML);
-}
+}*/
 
 function watchSubmit() {
   $('.js-search-form').submit(event => {
@@ -114,7 +114,7 @@ function watchSubmit() {
 }
  function handleAllButtons() {
    handleEventsButton();
-   handleStoriesButton();
+   /*handleStoriesButton();*/
  }
 
  handleAllButtons();
