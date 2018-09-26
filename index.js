@@ -80,7 +80,7 @@ function renderEventsList(result) {
   for(let i =0; i < result.data.results.length; i++) {
     newHTML +=`
     <main class="events-list">
-      <div><img src ="${result.data.results[i].thumbnail.path}.${result.data.results[i].thumbnail.extension}"</div>
+      <div><img src ="${result.data.results[i].thumbnail.path}.${result.data.results[i].thumbnail.extension}"></div>
       <h2>${result.data.results[i].title}</h2>
       <a>${result.data.results[i].description}</a>
     </main>
@@ -89,19 +89,19 @@ function renderEventsList(result) {
   $(".js-search-results").html(newHTML);
 }
 
-/*function renderStoriesList(result) {
+function renderStoriesList(result) {
   let newHTML = "";
   for(let i =0; i < data.results.length; i++){
     newHTML += `
   <main class="stories-list">
-    <div data-stories="${}></div>
-    <h2 data-stories="${}></h2>
-    <a data-stories="${}"></a>
+    <div <img src="${result.data.results[i].thumbnail.path}.${result.data.results[i].thumbnail.extension}"></div>
+    <h2 ${result.data.results[i].title}></h2>
+    <a ${result.data.results[i].description}></a>
   </main>
   `;
   }
   $(".js-search-results").html(newHTML);
-}*/
+}
 
 function watchSubmit() {
   $('.js-search-form').submit(event => {
