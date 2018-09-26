@@ -5,6 +5,14 @@ body {
   background: blue;
 }
 
+html {
+  background: url("https://i.stack.imgur.com/QgTND.jpg")no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 button:hover {
   cursor: pointer;
 }
