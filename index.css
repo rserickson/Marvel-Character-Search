@@ -3,9 +3,9 @@ body {
   padding-top: 50px;
   box-sizing: border-box;
   font-family: Georgia serif;
-  background: blue;
+  background: rgb(231, 231, 238);
   margin:auto auto;
-  width: 50%;
+  width: 52%;
 }
 
 html {
@@ -35,12 +35,18 @@ h1 {
   text-align: center;
   font-size: 30;
   font-style: oblique;
-  color: whitesmoke;
+  color: solid black;
 }
 
 h2 {
   text-align: center;
-  color: whitesmoke;
+  color: solid black;
+}
+
+.results-display {
+  display: block;
+  border-bottom: 2px darkslategrey;
+
 }
 
 a {
@@ -53,12 +59,12 @@ p {
   max-width: 35%;
   display: block;
   margin: auto auto;
-  color: whitesmoke;
+  color: solid black;
 }
 
 h3 {
   text-align: center;
-  color: whitesmoke;
+  color: solid black;
 }
 
 a, img {
@@ -76,14 +82,14 @@ a, img {
 
 .events-button {
   display: inline-block;
-  min-height: 80px;
-  min-width: 80px;
+  min-height: 50px;
+  min-width: 50px;
   margin-bottom: 2em;
   font-size: 2em;
-  background-color:red;
+  background-color:blue;
   color: white;
   border-radius: 10px;
-  padding: 20px;
+  padding: 10px;
   width: 60%;
   max-width: 200px;
   margin: auto auto;
@@ -94,14 +100,14 @@ a, img {
 
 .stories-button {
   display: inline-block;
-  min-height: 80px;
-  min-width: 80px;
+  min-height: 50px;
+  min-width: 50px;
   margin-bottom: 2em;
   font-size: 2em;
-  background-color:red;
+  background-color:blue;
   color: white;
   border-radius: 10px;
-  padding: 20px;
+  padding: 10px;
   width: 60%;
   max-width: 200px;
   margin: auto auto;
@@ -126,4 +132,20 @@ a, img {
   display: block;
   margin: auto auto;
   width: 60%;
+}
+
+@media only screen and (min-width: 320px) {
+
+}
+
+@media only screen and (min-width: 360px) {
+
+}
+
+@media only screen and (min-width: 650px) {
+
+}
+
+@media only screen and (min-width: 1000px) {
+
 }

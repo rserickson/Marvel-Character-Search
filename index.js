@@ -25,12 +25,14 @@ function displayMarvelSearchData(data) {
 function renderResults(result) {
   return `
   <main class="search-results">
-    <a><img src ="${result.thumbnail.path}.${result.thumbnail.extension}"></a>
-    <h3>${result.name}</h3>
-    <p>${result.description}</p>
-    <div class="list-buttons">
-      <button class="list events-button" data-character-id= "${result.id}">Events</button>
-      <button class="list stories-button" data-id-character= "${result.id}">Stories</button>
+    <div class="results-display">
+      <a><img src ="${result.thumbnail.path}.${result.thumbnail.extension}"></a>
+      <h3>${result.name}</h3>
+      <p>${result.description}</p>
+      <div class="list-buttons">
+        <button class="list events-button" data-character-id= "${result.id}">Events</button>
+        <button class="list stories-button" data-id-character= "${result.id}">Stories</button>
+      </div>
     </div>
   </main>
   `;
