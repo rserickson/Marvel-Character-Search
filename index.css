@@ -126,28 +126,59 @@ a, img {
   display: block;
   margin: auto auto;
   width: 60%;
+  padding: 10px
 }
 
 .stories-list {
   display: block;
   margin: auto auto;
   width: 60%;
+  padding: 10px;
 }
 
 @media only screen and (min-width: 320px) {
-
+  body {
+    width: 100%;
+    margin: auto auto;
+  }
+  .events-button {
+    width: 140px;
+  }
+  .stories-button {
+    width: 140px;
+  }
 }
 
 @media only screen and (min-width: 360px) {
-  
+  body {
+    width: 100%;
+    margin: auto auto;
+  }
+  .list-buttons{
+    width: 360px;
+  }
+  .events-button {
+    width: 160px;
+    margin: auto auto;
+  }
+  .stories-button {
+    width: 160px;
+    margin: auto auto;
+  }
+  .js-search-results {
+    width: 100%;
+  }
+  p {
+    width: 100%;
+  }
 }
 
 @media only screen and (min-width: 650px) {
   body {
-    width: 67%;
+    width: 71%;
   }
   p {
-    width: 600px;
+    width: 90%;
   }
 
   a, img {
