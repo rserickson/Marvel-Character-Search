@@ -2,7 +2,8 @@ body {
   display: block;
   padding-top: 50px;
   box-sizing: border-box;
-  font-family: Georgia serif;
+  font-family: system-ui;
+  font-weight: 500;
   background: rgb(231, 231, 238);
   margin:auto auto;
   width: 52%;
@@ -33,8 +34,7 @@ button:hover {
 
 h1 {
   text-align: center;
-  font-size: 30;
-  font-style: oblique;
+  font-size: 35;
   color: solid black;
 }
 
