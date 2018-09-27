@@ -36,6 +36,7 @@ h1 {
   text-align: center;
   font-size: 35;
   color: solid black;
+  border-bottom: 2px darkslategray;
 }
 
 h2 {
@@ -45,8 +46,6 @@ h2 {
 
 .results-display {
   display: block;
-  border-bottom: 2px darkslategrey;
-
 }
 
 a {
@@ -60,6 +59,7 @@ p {
   display: block;
   margin: auto auto;
   color: solid black;
+  padding: 20px;
 }
 
 h3 {
