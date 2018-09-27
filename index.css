@@ -7,6 +7,7 @@ body {
   background: rgb(231, 231, 238);
   margin:auto auto;
   width: 45%;
+  height: 100%;
 }
 
 html {
@@ -147,6 +148,9 @@ a, img {
   .stories-button {
     width: 140px;
   }
+  p {
+    max-width: 100%;
+  }
 }
 
 @media only screen and (min-width: 360px) {
@@ -187,6 +191,9 @@ a, img {
 }
 
 @media only screen and (min-width: 1000px) {
+  body {
+    width: 52%;
+  }
   p {
     max-width: 50%;
   }
