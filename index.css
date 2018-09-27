@@ -139,7 +139,7 @@ a, img {
 }
 
 @media only screen and (min-width: 360px) {
-
+  
 }
 
 @media only screen and (min-width: 650px) {
@@ -147,7 +147,7 @@ a, img {
     width: 67%;
   }
   p {
-    width: 500px;
+    width: 600px;
   }
 
   a, img {
