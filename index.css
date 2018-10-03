@@ -76,7 +76,8 @@ a, img {
 
 .list-buttons {
   display: block;
-  margin: 0 auto;
+  text-align: center;
+  margin: auto auto;
   padding: 10px;
 }
 
@@ -141,14 +142,20 @@ a, img {
     width: 100%;
     margin: auto auto;
   }
+  main {
+    width: 100%;
+  }
   .events-button {
     width: 140px;
   }
   .stories-button {
     width: 140px;
   }
+  a, img {
+    max-width: 100%;
+  }
   p {
-    max-width: 80%;
+    max-width: 100%;
   }
 }
 

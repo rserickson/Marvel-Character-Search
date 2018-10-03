@@ -82,9 +82,11 @@ function renderEventsList(result) {
   for(let i =0; i < result.data.results.length; i++) {
     newHTML +=`
     <main class="events-list">
-      <div><img src ="${result.data.results[i].thumbnail.path}.${result.data.results[i].thumbnail.extension}"></div>
-      <h2>${result.data.results[i].title}</h2>
-      <a>${result.data.results[i].description}</a>
+      <div class="events-results">
+        <a><img src ="${result.data.results[i].thumbnail.path}.${result.data.results[i].thumbnail.extension}"></a>
+        <h2>${result.data.results[i].title}</h2>
+        <p>${result.data.results[i].description}</p>
+      </div>
     </main>
   `;
   }
@@ -96,9 +98,11 @@ function renderStoriesList(result) {
   for(let i =0; i < data.results.length; i++){
     newHTML += `
   <main class="stories-list">
-    <div <img src="${result.data.results[i].thumbnail.path}.${result.data.results[i].thumbnail.extension}"></div>
-    <h2 ${result.data.results[i].title}></h2>
-    <a ${result.data.results[i].description}></a>
+    <div class="stories-results>
+      <a><img src="${result.data.results[i].thumbnail.path}.${result.data.results[i].thumbnail.extension}"></a>
+      <h2>${result.data.results[i].title}</h2>
+      <p>${result.data.results[i].description}</p>
+    </div>
   </main>
   `;
   }
@@ -116,7 +120,7 @@ function watchSubmit() {
 }
  function handleAllButtons() {
    handleEventsButton();
-   /*handleStoriesButton();*/
+   handleStoriesButton();
  }
 
  handleAllButtons();
