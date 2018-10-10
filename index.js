@@ -18,8 +18,12 @@ function getDataFromApi(searchName, callback) {
 }
 
 function displayMarvelSearchData(data) {
-  const results = data.data.results.map((results,index) => renderResults(results));
+  if(data.data.count == 0) {
+    noSearchResults();
+  } else {
+    const results = data.data.results.map((results,index) => renderResults(results));
   $('.js-search-results').html(results);
+  }
 }
 
 function renderResults(result) {
@@ -31,11 +35,20 @@ function renderResults(result) {
       <p>${result.description}</p>
       <div class="list-buttons">
         <button class="list events-button" data-character-id= "${result.id}">Events</button>
-        <button class="list stories-button" data-id-character= "${result.id}">Stories</button>
+        <button class="list series-button" data-id-character= "${result.id}">Series</button>
       </div>
     </div>
   </main>
   `;
+}
+
+const noSearchResults() {
+  return `
+  <main>
+    <div class="js-search-results">
+      <p>No results found. Please try again.</p>
+  </main>
+  `
 }
 
 function handleEventsButton(characterId, callback) {
@@ -58,20 +71,20 @@ function handleEventsButton(characterId, callback) {
 
   }
 
-function handleStoriesButton(characterId, callback) {
-  $('.js-search-results').on('click', '.stories-button', function(event) {
-    let storiesData = $(this).data("id-character");
+function handleSeriesButton(characterId, callback) {
+  $('.js-search-results').on('click', '.series-button', function(event) {
+    let seriesData = $(this).data("id-character");
     let ts = new Date().getTime();
     let hash = md5(ts + PRIV_KEY + PUBLIC_KEY);
     const query= {
       ts:ts,
       hash:hash,
-      characterId: storiesData,
+      characterId: seriesData,
       limit: 1,
       apikey: PUBLIC_KEY,
     }
-    let characterUrl = SEARCH_URL + "/" + storiesData + "/events";
-      $.getJSON(characterUrl, query, renderStoriesList).fail(function(err) {
+    let characterUrl = SEARCH_URL + "/" + seriesData + "/series";
+      $.getJSON(characterUrl, query, renderSeriesList).fail(function(err) {
         console.log(err);
       });
   });
@@ -93,15 +106,15 @@ function renderEventsList(result) {
   $(".js-search-results").html(newHTML);
 }
 
-function renderStoriesList(result) {
+function renderSeriesList(result) {
   let newHTML = "";
-  for(let i =0; i < data.results.length; i++){
+  for(let i =0; i < result.data.results.length; i++){
     newHTML += `
-  <main class="stories-list">
-    <div class="stories-results>
-      <a><img src="${result.data.results[i].thumbnail.path}.${result.data.results[i].thumbnail.extension}"></a>
+  <main class="series-list">
+    <div class="series-results>
       <h2>${result.data.results[i].title}</h2>
       <p>${result.data.results[i].description}</p>
+      <a>${result.data.results[i].rating}</a>
     </div>
   </main>
   `;
@@ -120,7 +133,7 @@ function watchSubmit() {
 }
  function handleAllButtons() {
    handleEventsButton();
-   handleStoriesButton();
+   handleSeriesButton();
  }
 
  handleAllButtons();

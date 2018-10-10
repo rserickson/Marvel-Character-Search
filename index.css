@@ -99,7 +99,7 @@ a, img {
   border: none;
 }
 
-.stories-button {
+.series-button {
   display: inline-block;
   min-height: 50px;
   min-width: 50px;
@@ -130,7 +130,7 @@ a, img {
   padding: 10px
 }
 
-.stories-list {
+.series-list {
   display: block;
   margin: auto auto;
   width: 60%;
@@ -148,7 +148,7 @@ a, img {
   .events-button {
     width: 140px;
   }
-  .stories-button {
+  .series-button {
     width: 140px;
   }
   a, img {
@@ -168,7 +168,7 @@ a, img {
     width: 160px;
     margin: auto auto;
   }
-  .stories-button {
+  .series-button {
     width: 160px;
     margin: auto auto;
   }
