@@ -19,7 +19,7 @@ function getDataFromApi(searchName, callback) {
 
 function displayMarvelSearchData(data) {
   if(data.data.count == 0) {
-    noSearchResults();
+    noResultsDisplay();
   } else {
     const results = data.data.results.map((results,index) => renderResults(results));
   $('.js-search-results').html(results);
@@ -42,14 +42,16 @@ function renderResults(result) {
   `;
 }
 
-const noSearchResults() {
-  return `
-  <main>
-    <div class="js-search-results">
+function noResultsDisplay() {
+  $('.js-search-results').html(noSearchResults);
+  noResultsDisplay();
+}
+
+const noSearchResults = `
+  <main class="search-results">
       <p>No results found. Please try again.</p>
   </main>
-  `
-}
+  `;
 
 function handleEventsButton(characterId, callback) {
   $('.js-search-results').on('click', '.events-button', function(event) {
@@ -114,7 +116,6 @@ function renderSeriesList(result) {
     <div class="series-results>
       <h2>${result.data.results[i].title}</h2>
       <p>${result.data.results[i].description}</p>
-      <a>${result.data.results[i].rating}</a>
     </div>
   </main>
   `;
