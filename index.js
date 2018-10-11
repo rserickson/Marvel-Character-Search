@@ -9,7 +9,7 @@ function getDataFromApi(searchName, callback) {
     ts:ts,
     hash:hash,
     nameStartsWith: `${searchName}`,
-    limit: 1,
+    limit: 5,
     apikey: PUBLIC_KEY,
   }
   $.getJSON(SEARCH_URL, query, callback).fail(function(err) {
@@ -62,7 +62,7 @@ function handleEventsButton(characterId, callback) {
       ts:ts,
       hash:hash,
       characterId: eventsData,
-      limit: 1,
+      limit: 5,
       apikey: PUBLIC_KEY,
     }
     let characterUrl = SEARCH_URL + "/" + eventsData + "/events";
@@ -82,7 +82,7 @@ function handleSeriesButton(characterId, callback) {
       ts:ts,
       hash:hash,
       characterId: seriesData,
-      limit: 1,
+      limit: 5,
       apikey: PUBLIC_KEY,
     }
     let characterUrl = SEARCH_URL + "/" + seriesData + "/series";
@@ -113,7 +113,7 @@ function renderSeriesList(result) {
   for(let i =0; i < result.data.results.length; i++){
     newHTML += `
   <main class="series-list">
-    <div class="series-results>
+    <div class="series-results">
       <h2>${result.data.results[i].title}</h2>
       <p>${result.data.results[i].description}</p>
     </div>
